@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import LIstTodos from "./LIstTodos";
 
 export class AddTodo extends Component {
   constructor(props) {
@@ -60,7 +61,7 @@ export class AddTodo extends Component {
             </button>
           </form>
         </div>
-        <center>List</center>
+        <LIstTodos />
         <ol className="col ml-3">
           {this.state.list.map((value, index) => {
             return (

@@ -4,7 +4,7 @@ export class LIstTodos extends Component {
   render() {
     return (
       <div>
-        <center>List of ToDo</center>
+        <center>List of Todo</center>
       </div>
     );
   }
