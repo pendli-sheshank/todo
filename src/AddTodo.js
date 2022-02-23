@@ -48,37 +48,50 @@ export class AddTodo extends Component {
   render() {
     return (
       <div className="container">
-        <div>
-          <form onSubmit={this.onAddBtn}>
+        <div className="d-flex  justify-content-center align-items-center">
+          <form className="d-flex " onSubmit={this.onAddBtn}>
             <input
+              className="card shadow  form-control-lg"
               value={this.state.enteredValue}
               onChange={this.onEnterValue}
               placeholder="Enter ToDo here"
               type="text"
             />
-            <button type="submit" className="btn btn-sm btn-primary">
+            <button type="submit" className="btn btn-sm btn-primary rounded ">
               Add
             </button>
           </form>
         </div>
-        <LIstTodos />
-        <ol className="col ml-3">
+        <hr />
+
+        <h5>List of Todo's</h5>
+        <hr />
+
+        <div className="col ml-3 mt-5">
           {this.state.list.map((value, index) => {
             return (
-              <div key={index} className="col mb-3">
-                <div className="border d-flex  justify-content-between align-items-center">
-                  <li className="ml-3 p-2 ">{value.name} </li>
-                  <span
-                    onClick={() => this.onDelete(index)}
-                    className="btn btn-sm btn-danger"
-                  >
-                    Delete
-                  </span>
+              <div key={index} className="col mb-3 card shadow">
+                <div className="border d-flex card-body   justify-content-between align-items-center">
+                  <div className="ml-3 p-2 ">{value.name} </div>
+                  <div>
+                    <span
+                      onClick={() => this.onDelete(index)}
+                      className="btn btn-sm btn-danger"
+                    >
+                      Delete
+                    </span>
+                    <span
+                      onClick={() => this.onEdit(index)}
+                      className="btn btn-sm btn-info text-white mx-2"
+                    >
+                      Edit
+                    </span>
+                  </div>
                 </div>
               </div>
             );
           })}
-        </ol>
+        </div>
       </div>
     );
   }
